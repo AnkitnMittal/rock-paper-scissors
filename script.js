@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3);
 
@@ -16,22 +19,24 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice)
-        console.log("Draw!");
-    else if (humanChoice == "rock" && computerChoice == "paper")
-        console.log("You Lose! Paper beats Rock");
-    else if (humanChoice == "rock" && computerChoice == "scissors")
-        console.log("You Win! Rock beats Scissors");
-    else if (humanChoice == "paper" && computerChoice == "rock")
-        console.log("You Win! Paper beats Rock");
-    else if (humanChoice == "paper" && computerChoice == "scissors")
-        console.log("You Lose! Scissors beats Paper");
-    else if (humanChoice == "scissors" && computerChoice == "rock")
-        console.log("You Lose! Rock beats Scissors");
-    else if (humanChoice == "scissors" && computerChoice == "paper")
-        console.log("You Win! Scissors beats Paper");
+        console.log("Tie!");
+    else if ((humanChoice == "rock" && computerChoice == "paper") || (humanChoice == "scissors" && computerChoice == "rock") || (humanChoice == "paper" && computerChoice == "scissors")) {
+        console.log("You Lose! " + computerChoice + " beats " + humanChoice);
+        computerScore++;
+    }
+    else if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
+        console.log("You Win! " + humanChoice + " beats " + computerChoice);
+        humanScore++;
+    }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log("Human Score: " + humanScore + " Computer Score: " + computerScore);
+    }
+}
 
-playRound(humanSelection, computerSelection);
+playGame();
