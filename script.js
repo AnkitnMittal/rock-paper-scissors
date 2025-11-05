@@ -42,6 +42,15 @@ function playRound(humanChoice, computerChoice) {
 
 const btnList = document.querySelector(".btnList");
 btnList.addEventListener("click", (event) => {
+    if (humanScore == 5) {
+        document.querySelector("#message").textContent = "🎉 You Win!";
+        return;
+    }
+    else if (computerScore == 5) {
+        document.querySelector("#message").textContent = "💥 You Lose!";
+        return;
+    }
+
     let target = event.target;
 
     const humanChoice = target.id;
@@ -56,6 +65,7 @@ btnList.addEventListener("click", (event) => {
 
 const reset = document.querySelector("#reset");
 reset.addEventListener("click", (event) => {
+    document.querySelector("#message").textContent = "Click a Button to START THE GAME!";
     humanScore = 0;
     computerScore = 0;
     updateScores();
