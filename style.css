@@ -67,7 +67,7 @@ body {
     background-color: white;
     border-radius: 20px;
     margin: 2rem 0px;
-    padding: 20px;
+    padding: 1.8rem;
 }
 
 .choice {
@@ -89,10 +89,18 @@ body {
 }
 
 #message {
-    font-size: 1.25rem;
+    height: auto;
+    flex: 1;
+    margin: 3rem 0rem;
+    padding: 1rem;
+
+    background-color: #64B5F6;
+    color: white;
+    border-radius: 8px;
+    font-size: 3rem;
     text-align: center;
     font-weight: 400;
-    height: 20px;
+    align-content: center;
 }
 
 .btnList {
@@ -100,7 +108,6 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-
 }
 
 button {
